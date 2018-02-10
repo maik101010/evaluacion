@@ -64,12 +64,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <!--<select name="pageSize" id="pageSize" onChange="window.location = '/evaluacion/web/index.php?r=persona%2Findex&pageSize=' + this.value;">-->
         <select name="pageSize" id="pageSize" onChange="window.location = '/index.php?r=persona%2Findex&pageSize=' + this.value;">
                                                                       
-        <option value="0">Seleccionar paginación</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select>
+            <option value="0">Seleccionar paginación</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
     </br>
     <p>Registros por página</p>
     </div>
