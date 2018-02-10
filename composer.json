@@ -20,10 +20,11 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "yiisoft/yii2-jui": "*",
         "kartik-v/yii2-dynagrid": "@dev",
+        "yiisoft/yii2-debug": "~2.0.0",
         "richardfan1126/yii2-js-register": "^0.0.1"
     },
     "require-dev": {
-        "yiisoft/yii2-debug": "~2.0.0",
+        
         "yiisoft/yii2-gii": "~2.0.0",
         "yiisoft/yii2-faker": "~2.0.0",
 
