@@ -61,7 +61,8 @@ $this->params['breadcrumbs'][] = $this->title;
         onChange="window.location = '/evaluacion/web/index.php?r=persona%2Findex&pageSize=' + this.value; ">
     </input>-->
     
-    <select name="pageSize" id="pageSize" onChange="window.location = '/evaluacion/web/index.php?r=persona%2Findex&pageSize=' + this.value;">
+    <!--<select name="pageSize" id="pageSize" onChange="window.location = '/evaluacion/web/index.php?r=persona%2Findex&pageSize=' + this.value;">-->
+        <select name="pageSize" id="pageSize" onChange="window.location = '/index.php?r=persona%2Findex&pageSize=' + this.value;">
                                                                       
         <option value="0">Seleccionar paginación</option>
         <option value="1">1</option>
