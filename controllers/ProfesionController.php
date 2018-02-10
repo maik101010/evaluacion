@@ -15,12 +15,12 @@ class ProfesionController extends ActiveController
         return Profesion::findOne($id);
 
     }
-    public function behaviors()
+    /*public function behaviors()
     {
         $behaviors = parent::behaviors();
         $behaviors['authenticator'] = [
             'class' => HttpBasicAuth::className(),
         ];
         return $behaviors;
-    }
+    }*/
 }

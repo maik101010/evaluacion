@@ -81,4 +81,14 @@ class Persona extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Profesion::className(), ['id' => 'id_profesion']);
     }
+
+    public static function getPrueba($var)
+    {
+        // $var ="bienvenido";
+        if($var1=="bienvenido"){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

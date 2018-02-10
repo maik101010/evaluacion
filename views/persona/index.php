@@ -34,7 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'id_municipio',
                 'value'=>'municipio.municipio',
                 //array de los municipio
-                'filter' =>  $modelc,
+                'filter' =>  $modelC,
+            ],
+            [
+                'attribute'=>'id_profesion',
+                'value'=>'profesion.profesion',
+                //array de los municipio
+                'filter' =>  $modelP,
             ],
            // 'fecha_nacimiento',
             'correo',

@@ -11,6 +11,12 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'modules' => [
+        'forum' =>[
+            'class' => 'app\modules\forum\Module',
+            'basePath' => '@app/modules/forum',
+        ],
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -24,7 +30,8 @@ $config = [
         ],
         'user' => [
             'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            //Configuración para la autentificación del token
+            'enableAutoLogin' => false,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -51,12 +58,19 @@ $config = [
             //'enablePrettyUrl' => true,
             //'showScriptName' => true,
             'rules' => [
+                // [
+                //       'class' => 'yii\rest\UrlRule', 
+                //       'controller' => 'profesion',
+                //       'tokens' => [
+                //                     '{id}' => '<id:\\w+>'
+                //                   ]                           
+                // ],
                 [
-                      'class' => 'yii\rest\UrlRule', 
-                      'controller' => 'profesion',
-                      'tokens' => [
-                                    '{id}' => '<id:\\w+>'
-                                  ]                           
+                        'class' => 'yii\rest\UrlRule', 
+                        'controller' => 'forum/profesion',
+                         'tokens' => [
+                         '{id}' => '<id:\\w+>'
+                     ]                           
                 ],
                   
             ],

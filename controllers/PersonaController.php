@@ -6,6 +6,7 @@ use Yii;
 use app\models\Persona;
 use app\models\PersonaSearch;
 use app\models\Municipio;
+use app\models\Profesion;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -38,8 +39,10 @@ class PersonaController extends Controller
     {
         $searchModel = new PersonaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $modelc = new Municipio();
-        $modelc = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
+        $modelC = new Municipio();
+        $modelC = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
+        $modelP = new Profesion();
+        $modelP = \yii\helpers\ArrayHelper::map(Profesion::find()->all(), 'id', 'profesion');
 
         //traer el número de la paginación
         $request = Yii::$app->request;
@@ -57,7 +60,8 @@ class PersonaController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'modelc'=>$modelc,
+            'modelC'=>$modelC,
+            'modelP'=>$modelP,
            // 'post' => $post,
         ]);
     }
@@ -85,15 +89,15 @@ class PersonaController extends Controller
     public function actionCreate()
     {
         $model = new Persona();
-        $modelc = new Municipio();
+        $modelC = new Municipio();
         $model->estado = Persona::STATUS_ACTIVE;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
         
-        $modelc = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
+        $modelC = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
         return $this->render('create', [
-            'model' => $model, 'modelc'=>$modelc,
+            'model' => $model, 'modelC'=>$modelC,
         ]);
     }
 
@@ -107,15 +111,15 @@ class PersonaController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $modelc = new Municipio();
+        $modelC = new Municipio();
         
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        $modelc = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
+        $modelC = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
         return $this->render('update', [
-            'model' => $model, 'modelc'=>$modelc
+            'model' => $model, 'modelC'=>$modelC
         ]);
     }
 

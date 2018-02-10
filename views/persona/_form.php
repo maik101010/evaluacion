@@ -51,7 +51,7 @@ use yii\helpers\Url;
         </div>
     
         <div class="col-md-6">
-            <?= $form->field($model, 'id_municipio')->dropdownList($modelc,
+            <?= $form->field($model, 'id_municipio')->dropdownList($modelC,
             ['prompt'=>'Select Ciudad']) ?>
         </div>
         
@@ -69,7 +69,7 @@ use yii\helpers\Url;
     
     <?php JSRegister::begin(); ?>
             $.ajax({
-                url: '<?= Url::to(['/profesion']) ?>',
+                url: '<?= Url::to(['forum/profesion']) ?>',
                 type: 'get',
                 success: function(res) {
                     for(var i in res) {
