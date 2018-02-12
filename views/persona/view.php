@@ -2,10 +2,13 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+/*******************************************\
+* *
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Persona */
+* @var $model Persona campos del modelo 
 
+* *
+\*******************************************/
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Personas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

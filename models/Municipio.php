@@ -5,24 +5,15 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "municipio".
+ * Este es el modelo de clase para la tabla "municipio".
  *
  * @property int $id
  * @property string $municipio
  *
- * @property Persona[] $personas
  */
 class Municipio extends \yii\db\ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
-    public static function tableName()
-    {
-        return 'municipio';
-    }
-
-    /**
+     /**
      * @inheritdoc
      */
     public function rules()
@@ -31,23 +22,23 @@ class Municipio extends \yii\db\ActiveRecord
             [['municipio'], 'string', 'max' => 40],
         ];
     }
-
+    
     /**
-     * @inheritdoc
+     * @inheritdoc, metodo que nos muestra el valor del label en el formulario
      */
     public function attributeLabels()
     {
-        return [
-            'id' => 'ID',
-            'municipio' => 'Municipio',
-        ];
-    }
+         return [
+             'id' => 'ID',
+             'municipio' => 'Municipio',
+         ];
+     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPersonas()
-    {
-        return $this->hasMany(Persona::className(), ['id_municipio' => 'id']);
-    }
+    // /**
+    //  * @return \yii\db\ActiveQuery 
+    //  */
+    // public function getPersonas()
+    // {
+    //     return $this->hasMany(Persona::className(), ['id_municipio' => 'id']);
+    // }
 }

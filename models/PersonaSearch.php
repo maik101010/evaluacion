@@ -9,7 +9,7 @@ use app\models\Persona;
 use yii\data\Pagination;
 
 /**
- * PersonaSearch represents the model behind the search form of `app\models\Persona`.
+ * PersonaSearch representa el modelo que se encarga de buscar según la forma de `app\models\Persona`.
  */
 class PersonaSearch extends Persona
 {
@@ -34,7 +34,7 @@ class PersonaSearch extends Persona
     }
 
     /**
-     * Creates data provider instance with search query applied
+     * Crear una instancia de la clase ActiveDataProvider con una busqueda aplicada
      *
      * @param array $params
      *
@@ -44,15 +44,11 @@ class PersonaSearch extends Persona
     {
         //traemos el estado 1 para cargar valores sin eliminar
         $query = Persona::find()->where(['estado' => Persona::STATUS_ACTIVE]);
-        //hacemos la paginación
-       // $pagination = new Pagination(['defaultPageSize' => 5, 'totalCount' => $query->count(),]);
-        //$prueba = $query->orderBy('id')->offset($pagination->offset)->limit($pagination->limit)->all();
        
-        // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            //enviamos lo de la paginación
+            //enviamos los datos por defecto a mostrar en la paginación
             'pagination' => [
                 'pageSize' => 4,
             ],
@@ -61,8 +57,6 @@ class PersonaSearch extends Persona
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
             return $dataProvider;
         }
 

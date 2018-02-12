@@ -1,9 +1,14 @@
 <?php
-
+/*******************************************\
+* *
+* @var $model Persona renderizar los campos a la vista _form
+* @var $modelC Persona renderizar las ciudades a la vista _form
+* *
+\*******************************************/
 use yii\helpers\Html;
 
 
-$this->title = 'Create Persona';
+$this->title = 'Create Person';
 $this->params['breadcrumbs'][] = ['label' => 'Personas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -12,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
-        'model' => $model, 'modelC'=>$modelC
+        'model' => $model, 'modelM'=>$modelM
     ]) ?>
 
 </div>

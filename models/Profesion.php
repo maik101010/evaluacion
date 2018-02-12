@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "profesion".
+ * Este es el modelo de clase para la tabla "profesion"
  *
  * @property int $id
  * @property string $profesion
@@ -14,14 +14,7 @@ use Yii;
  */
 class Profesion extends \yii\db\ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
-    public static function tableName()
-    {
-        return 'profesion';
-    }
-
+  
     /**
      * @inheritdoc
      */
@@ -43,11 +36,5 @@ class Profesion extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPersonas()
-    {
-        return $this->hasMany(Persona::className(), ['id_profesion' => 'id']);
-    }
+  
 }

@@ -11,9 +11,16 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-/**
- * PersonaController implements the CRUD actions for Persona model.
- */
+/*************************************************\
+* Esta clase implementa las funciones necesarias para el CRUD de una persona
+* PHP versión 7.1
+*
+
+* @category Controllers
+* @author Michael García Abellí <michael.garcia@tramasoft.com>
+*
+*
+\*************************************************/
 class PersonaController extends Controller
 {
     /**
@@ -32,15 +39,15 @@ class PersonaController extends Controller
     }
 
     /**
-     * Lists all Persona models.
+     * Listar todas las personas del modelo.
      * @return mixed
      */
     public function actionIndex()
     {
         $searchModel = new PersonaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $modelC = new Municipio();
-        $modelC = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
+        $modelM = new Municipio();
+        $modelM = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
         $modelP = new Profesion();
         $modelP = \yii\helpers\ArrayHelper::map(Profesion::find()->all(), 'id', 'profesion');
 
@@ -52,25 +59,21 @@ class PersonaController extends Controller
             $dataProvider->pagination->pageSize = $get; 
         }
 
-        /*if(isset($_GET['pageSize'])){
-            $dataProvider->pagination->pageSize = $_GET['pageSize']; 
-        }*/
-        
        
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'modelC'=>$modelC,
+            'modelM'=>$modelM,
             'modelP'=>$modelP,
-           // 'post' => $post,
+           
         ]);
     }
 
   
 
     /**
-     * Displays a single Persona model.
-     * @param integer $id
+     * Mostrar una Persona del modelo.
+     * @param integer $id, este parametro te permite ver una Persona en base a su id 
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -82,72 +85,72 @@ class PersonaController extends Controller
     }
 
     /**
-     * Creates a new Persona model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     * Crear una nueva Persona del modelo.
      */
     public function actionCreate()
     {
         $model = new Persona();
-        $modelC = new Municipio();
+        $modelM = new Municipio();
         $model->estado = Persona::STATUS_ACTIVE;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
         
-        $modelC = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
+        $modelM = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
         return $this->render('create', [
-            'model' => $model, 'modelC'=>$modelC,
+            'model' => $model, 'modelM'=>$modelM,
         ]);
     }
 
     /**
-     * Updates an existing Persona model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * Actualizar una Persona del modelo.
+     * @param integer $id, este parametro te permite actualizar una Persona en base a su id 
+     * @throws NotFoundHttpException Si el modelo no puede ser encontrado
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $modelC = new Municipio();
+        $modelM = new Municipio();
         
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        $modelC = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
+        }/*else{
+            throw new NotFoundHttpException("La pagina no existe");
+        }*/
+        
+        $modelM = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
         return $this->render('update', [
-            'model' => $model, 'modelC'=>$modelC
+            'model' => $model, 'modelM'=>$modelM
         ]);
     }
 
     /**
-     * Deletes an existing Persona model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * Cambiar o actualizar el estado de una Persona del modelo.
+     * @param integer $id, este parametro te permite actualizar el estado de una Persona en base a su id 
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException Si el modelo no puede ser encontrado
      */
     public function actionDelete($id)
     {
-        /*$this->findModel($id)->delete();
-        */
+       
         $model = $this->findModel($id);
         $model->estado = Persona::STATUS_INACTIVE;
         if($model->save())
         {
             return $this->redirect(['index']);
         }
+        //else{
+        //     throw new NotFoundHttpException('La pagina no existe');
+        // }
+        return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Persona model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Persona the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * 
+     * Encuentra el modelo de Persona basado en su valor id o clave principal
+     * @param integer $id, este parametro te permite ver una Persona en base a su id 
+     * @return Persona la Clase modelo
+     * @throws NotFoundHttpException si el modelo no puede ser encontrado
      */
     protected function findModel($id)
     {
@@ -160,3 +163,18 @@ class PersonaController extends Controller
 
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

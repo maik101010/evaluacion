@@ -1,5 +1,11 @@
 <?php
+/*******************************************\
+* *
+* @var $this ProfesionController Descripcion cort a*
+* @var $model Persona validar los campos del modelo *
 
+* *
+\*******************************************/
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\jui\DatePicker;
@@ -51,7 +57,7 @@ use yii\helpers\Url;
         </div>
     
         <div class="col-md-6">
-            <?= $form->field($model, 'id_municipio')->dropdownList($modelC,
+            <?= $form->field($model, 'id_municipio')->dropdownList($modelM,
             ['prompt'=>'Select Ciudad']) ?>
         </div>
         

@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "persona".
+ * Esta es el modelo de clase para la tabla "persona".
  *
  * @property int $id
  * @property string $nombre
@@ -24,16 +24,21 @@ class Persona extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    /**
+     * El estado de una persona en la tabla, cuando es 0 indica que esta eliminado
+     */
     const STATUS_INACTIVE = 0;
+    /**
+     * El estado de una Persona en la tabla, cuando es 1 indica que no esta eliminado
+     */
     const STATUS_ACTIVE = 1;
     
-    public static function tableName()
-    {
+    public static function tableName(){
         return 'persona';
     }
 
     /**
-     * @inheritdoc
+     * @inheritdoc reglas o validaciones de los campos de la tabla 
      */
     public function rules()
     {
@@ -50,24 +55,24 @@ class Persona extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * @inheritdoc Valores que se visualizan por parte del usuario en el formulario
      */
     public function attributeLabels()
     {
         return [
             'id' => 'ID',
-            'nombre' => 'Nombre',
-            'apellido' => 'Apellido',
-            'fecha_nacimiento' => 'Fecha Nacimiento',
+            'nombre' => 'Name',
+            'apellido' => 'LastName',
+            'fecha_nacimiento' => 'Birthdate',
             'correo' => 'Correo',
-            'id_profesion' => 'Profesiones',
-            'id_municipio' => 'Municipios',
+            'id_profesion' => 'Profession',
+            'id_municipio' => 'City',
             //'estado' => 'Estado',
         ];
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @return \yii\db\ActiveQuery, nos retorna los municipios
      */
     public function getMunicipio()
     {
@@ -75,20 +80,20 @@ class Persona extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @return \yii\db\ActiveQuery, nos retorna las profesiones
      */
     public function getProfesion()
     {
         return $this->hasOne(Profesion::className(), ['id' => 'id_profesion']);
     }
 
-    public static function getPrueba($var)
-    {
-        // $var ="bienvenido";
-        if($var1=="bienvenido"){
-            return true;
-        }else{
-            return false;
-        }
-    }
+    // public static function getPrueba($var)
+    // {
+    //     // $var ="bienvenido";
+    //     if($var1=="bienvenido"){
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
 }

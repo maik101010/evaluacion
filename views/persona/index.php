@@ -1,15 +1,17 @@
 <?php
-
+/*******************************************\
+* *
+* @var $modelM Municipio resultados del modelo
+* @var $modelP Profesion resultados del modelo
+* *
+\*******************************************/
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\LinkPager;  
 use app\models\Municipio;
 use yii\helpers\Url;
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\PersonaSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Personas';
+$this->title = 'Person';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="persona-index">
@@ -18,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Persona', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Person', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -34,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'id_municipio',
                 'value'=>'municipio.municipio',
                 //array de los municipio
-                'filter' =>  $modelC,
+                'filter' =>  $modelM,
             ],
             [
                 'attribute'=>'id_profesion',
@@ -64,14 +66,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <!--<select name="pageSize" id="pageSize" onChange="window.location = '/evaluacion/web/index.php?r=persona%2Findex&pageSize=' + this.value;">-->
         <select name="pageSize" id="pageSize" onChange="window.location = '/index.php?r=persona%2Findex&pageSize=' + this.value;">
                                                                       
-            <option value="0">Seleccionar paginación</option>
+            <option value="0">Select pagination</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
         </select>
     </br>
-    <p>Registros por página</p>
+    <p>Records for page</p>
     </div>
     <!--Cambio desde evaluación-->
 

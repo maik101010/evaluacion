@@ -1,11 +1,13 @@
 <?php
+/*******************************************\
+* *
+* @var $model PersonaSearch validar los campos del modelo*
 
+* *
+\*******************************************/
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\PersonaSearch */
-/* @var $form yii\widgets\ActiveForm */
 ?>
 
 <div class="persona-search">
