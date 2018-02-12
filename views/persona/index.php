@@ -73,6 +73,9 @@ $this->params['breadcrumbs'][] = $this->title;
     </br>
     <p>Registros por página</p>
     </div>
+    <!--Cambio desde evaluación-->
+
+
     <!--
 
     <select id="mySelect" onchange="myFunction()">
