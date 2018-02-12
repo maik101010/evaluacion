@@ -76,7 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <!--Cambio desde evaluación-->
 
 
-    <!--<p>Select a new car from the list.</p>
+    <!--
 
     <select id="mySelect" onchange="myFunction()">
     <option value="Audi">Audi
