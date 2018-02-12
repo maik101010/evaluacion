@@ -73,7 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </br>
     <p>Registros por página</p>
     </div>
-    <!--<p>Select a new car from the list.</p>
+    <!--
 
     <select id="mySelect" onchange="myFunction()">
     <option value="Audi">Audi
