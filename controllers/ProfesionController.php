@@ -13,7 +13,13 @@ class ProfesionController extends ActiveController
 {
     public $modelClass = 'app\models\Profesion';
 
- 
+    public function behaviors() {
+    	$behaviors = parent::behaviors();
+    	$behaviors['autheticator'] = [
+    		'class' => HttpBearerAuth::className()
+    	];
+    	return $behaviors;
+    }
  
    
 }

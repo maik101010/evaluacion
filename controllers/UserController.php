@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\User;
-use app\models\Persona;
+use app\models\Profesion;
 use yii\rest\ActiveController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -26,32 +26,35 @@ class UserController extends ActiveController
 {
     public $modelClass = 'app\models\User';
 
-    public function behaviors()
-    {
-        $behaviors = parent::behaviors();
-        $behaviors['authenticator'] = [
-            'class' => CompositeAuth::className(),
-            'authMethods' => [
-                HttpBasicAuth::className(),
-                HttpBearerAuth::className(),
-                QueryParamAuth::className(),
-            ],
-        ];
-        return $behaviors;
+    // public function behaviors()
+    // {
+    //     $behaviors = parent::behaviors();
+    //     $behaviors['authenticator'] = [
+    //         'class' => CompositeAuth::className(),
+    //         'authMethods' => [
+    //             HttpBasicAuth::className(),
+    //             HttpBearerAuth::className(),
+    //             QueryParamAuth::className(),
+    //         ],
+    //     ];
+    //     return $behaviors;
+    // }
+
+    public function behaviors() {
+    	$behaviors = parent::behaviors();
+    	$behaviors['autheticator'] = [
+    		'class' => HttpBearerAuth::className()
+    	];
+    	return $behaviors;
     }
 
     public function actionLogin()
     {
-        // if (!Yii::$app->user->isGuest) {
-        //     return $this->goHome();
-        // }
-        $model = new User();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-        return $this->render('login', [
-            'model' => $model,
-        ]);
+            $token = '$erw';
+            $model = new Profesion;
+            //$model = User::findIdentityByAccessToken($token);
+            
+            return $this->render('vista', ['model'=>$model, 'token'=>$token]);
     }
     // public function actionIndex()
     // {

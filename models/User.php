@@ -10,11 +10,11 @@ class User extends ActiveRecord implements IdentityInterface
         return 'user';
     }
 
-    public function init()
-    {
-        parent::init();
-        \Yii::$app->user->enableSession = false;
-    }
+    // public function init()
+    // {
+    //     parent::init();
+    //     \Yii::$app->user->enableSession = false;
+    // }
 
     public function rules()
     {
@@ -24,11 +24,20 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
-    public static function findIdentityByAccessToken($token, $type = null)
-    {
-        return static::findOne(['access_token' => $token]);
-    }
+    // public static function findIdentityByAccessToken($token, $type = null)
+    // {
 
+    //     return static::findOne(['access_token' => $token]);
+    // }
+
+
+
+
+
+
+
+
+    
     // public function rules()
     // {
     //     return [
