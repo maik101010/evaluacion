@@ -25,6 +25,24 @@ $config = [
                 'application/json' => 'yii\web\JsonParser',
             ]
         ],
+        
+        //Lo del usuario
+        'user' => [
+            'identityClass' => 'app\models\User',
+        ],
+
+
+        //Configuración de tema
+        // 'view' => [
+        //     'theme' => [
+        //         'basePath' => '@app/themes/basic',
+        //         'baseUrl' => '@web/themes/basic',
+        //         'pathMap' => [
+        //             '@app/views' => '@app/themes/basic',
+        //         ],
+        //     ],
+        // ],
+
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -57,14 +75,18 @@ $config = [
         'urlManager' => [
             //'enablePrettyUrl' => true,
             //'showScriptName' => true,
+            'enablePrettyUrl' => false,
+            'enableStrictParsing' => false,
+            'showScriptName' => false,
             'rules' => [
-                // [
-                //       'class' => 'yii\rest\UrlRule', 
-                //       'controller' => 'profesion',
-                //       'tokens' => [
-                //                     '{id}' => '<id:\\w+>'
-                //                   ]                           
-                // ],
+                
+                 [
+                       'class' => 'yii\rest\UrlRule', 
+                       'controller' => 'profesion',
+                       'tokens' => [
+                                     '{id}' => '<id:\\w+>'
+                                   ]                           
+                ],
                 [
                         'class' => 'yii\rest\UrlRule', 
                         'controller' => 'forum/profesion',
@@ -72,6 +94,13 @@ $config = [
                          '{id}' => '<id:\\w+>'
                      ]                           
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule', 
+                    'controller' => 'user',
+                //      'tokens' => [
+                //      '{id}' => '<id:\\w+>'
+                //  ]                           
+            ],
                   
             ],
         ],

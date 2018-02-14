@@ -17,7 +17,7 @@ use yii\filters\VerbFilter;
 *
 
 * @category Controllers
-* @author Michael García Abellí <michael.garcia@tramasoft.com>
+* @author Michael García Abelló <michael.garcia@tramasoft.com>
 *
 *
 \*************************************************/
@@ -69,8 +69,6 @@ class PersonaController extends Controller
         ]);
     }
 
-  
-
     /**
      * Mostrar una Persona del modelo.
      * @param integer $id, este parametro te permite ver una Persona en base a su id 
@@ -92,13 +90,16 @@ class PersonaController extends Controller
         $model = new Persona();
         $modelM = new Municipio();
         $model->estado = Persona::STATUS_ACTIVE;
+        $token = '74191f2b7fb6da7e60be';
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
         
         $modelM = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
         return $this->render('create', [
-            'model' => $model, 'modelM'=>$modelM,
+            'model' => $model, 
+            'modelM'=>$modelM,
+            'token'=>$token,
         ]);
     }
 
@@ -111,7 +112,7 @@ class PersonaController extends Controller
     {
         $model = $this->findModel($id);
         $modelM = new Municipio();
-        
+        $token = '74191f2b7fb6da7e60be';
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }/*else{
@@ -120,7 +121,9 @@ class PersonaController extends Controller
         
         $modelM = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
         return $this->render('update', [
-            'model' => $model, 'modelM'=>$modelM
+            'model' => $model,
+            'modelM'=>$modelM,
+            'token'=>$token,
         ]);
     }
 

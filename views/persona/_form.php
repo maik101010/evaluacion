@@ -11,9 +11,7 @@ use yii\widgets\ActiveForm;
 use yii\jui\DatePicker;
 use richardfan\widget\JSRegister;
 use yii\helpers\Url;
-/* @var $this yii\web\View */
-/* @var $model app\models\Persona */
-/* @var $form yii\widgets\ActiveForm */
+
 ?>
 
 <div class="persona-form">
@@ -75,8 +73,11 @@ use yii\helpers\Url;
     
     <?php JSRegister::begin(); ?>
             $.ajax({
-                url: '<?= Url::to(['forum/profesion']) ?>',
+                url: '<?= Url::to(['profesion/index']) ?>',
                 type: 'get',
+                headers: {
+			        'Authorization': 'Bearer ' + '<?= $token ?>'
+			    },
                 success: function(res) {
                     for(var i in res) {
                         $('#persona-id_profesion').append(`

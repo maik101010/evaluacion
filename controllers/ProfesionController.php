@@ -13,7 +13,17 @@ class ProfesionController extends ActiveController
 {
     public $modelClass = 'app\models\Profesion';
 
- 
+	/**
+	 * Autenticar la profesión por medio de la clase HttpBearerAuth
+	 * 
+	 */
+    public function behaviors() {
+    	$behaviors = parent::behaviors();
+    	$behaviors['autheticator'] = [
+    		'class' => HttpBearerAuth::className()
+    	];
+    	return $behaviors;
+    }
  
    
 }
