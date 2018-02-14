@@ -1,14 +1,25 @@
 <?php
 
 /* @var $this yii\web\View */
-
+use yii\web\View;
 $this->title = 'My Yii Application';
 ?>
+
+
+
+
+
 <div class="site-index">
 
     <div class="jumbotron">
         <h1>Congratulations!</h1>
-
+        <form><input type="button" id="btn" value ="Dame click"></form>
+        <?php 
+        $this->registerJs(
+            "$('#btn').on('click', function() { alert('Button clicked!'); });",
+            View::POS_READY,
+            'my-button-handler'
+        );?>
         <p class="lead">You have successfully created your Yii-powered application.</p>
 
         <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>

@@ -10,6 +10,7 @@ use yii\grid\GridView;
 use yii\widgets\LinkPager;  
 use app\models\Municipio;
 use yii\helpers\Url;
+use yii\widgets\Pjax;  
 
 $this->title = 'Person';
 $this->params['breadcrumbs'][] = $this->title;
@@ -22,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Person', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
+    <?php Pjax::begin(); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -44,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 //array de los municipio
                 'filter' =>  $modelP,
             ],
-           // 'fecha_nacimiento',
+            // 'fecha_nacimiento',
             'correo',
             
             //'id_profesion',
@@ -55,6 +56,8 @@ $this->params['breadcrumbs'][] = $this->title;
             
         ],
     ]); ?>
+
+    <?php Pjax::end();?>
 
     <!--<input 
         type="number"

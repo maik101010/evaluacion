@@ -17,7 +17,7 @@ use yii\filters\VerbFilter;
 *
 
 * @category Controllers
-* @author Michael García Abellí <michael.garcia@tramasoft.com>
+* @author Michael García Abelló <michael.garcia@tramasoft.com>
 *
 *
 \*************************************************/

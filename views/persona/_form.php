@@ -11,9 +11,7 @@ use yii\widgets\ActiveForm;
 use yii\jui\DatePicker;
 use richardfan\widget\JSRegister;
 use yii\helpers\Url;
-/* @var $this yii\web\View */
-/* @var $model app\models\Persona */
-/* @var $form yii\widgets\ActiveForm */
+
 ?>
 
 <div class="persona-form">
