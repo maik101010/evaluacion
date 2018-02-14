@@ -73,8 +73,11 @@ use yii\helpers\Url;
     
     <?php JSRegister::begin(); ?>
             $.ajax({
-                url: '<?= Url::to(['forum/profesion']) ?>',
+                url: '<?= Url::to(['profesion/index']) ?>',
                 type: 'get',
+                headers: {
+			        'Authorization': 'Bearer ' + '<?= $token ?>'
+			    },
                 success: function(res) {
                     for(var i in res) {
                         $('#persona-id_profesion').append(`

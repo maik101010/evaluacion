@@ -36,5 +36,10 @@ class Profesion extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        return static::find()->where(['access_token' => $token])->all();
+                       
+    }
   
 }

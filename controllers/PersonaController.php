@@ -69,6 +69,20 @@ class PersonaController extends Controller
         ]);
     }
 
+    public function actionToken()
+    {
+        $token = '$erw';
+        $model = Profesion::findIdentityByAccessToken($token);
+        if($model){
+            foreach($model as $var){
+                echo "Acceso aceptado " .$var['profesion'] . "<br>";
+            }
+            
+        }else{
+            echo "Acccedo denegado";
+        }
+    }
+
   
 
     /**
@@ -92,13 +106,16 @@ class PersonaController extends Controller
         $model = new Persona();
         $modelM = new Municipio();
         $model->estado = Persona::STATUS_ACTIVE;
+        $token = '74191f2b7fb6da7e60be';
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
         
         $modelM = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
         return $this->render('create', [
-            'model' => $model, 'modelM'=>$modelM,
+            'model' => $model, 
+            'modelM'=>$modelM,
+            'token'=>$token,
         ]);
     }
 
@@ -111,7 +128,7 @@ class PersonaController extends Controller
     {
         $model = $this->findModel($id);
         $modelM = new Municipio();
-        
+        $token = '74191f2b7fb6da7e60be';
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }/*else{
@@ -120,7 +137,9 @@ class PersonaController extends Controller
         
         $modelM = \yii\helpers\ArrayHelper::map(Municipio::find()->all(), 'id', 'municipio');
         return $this->render('update', [
-            'model' => $model, 'modelM'=>$modelM
+            'model' => $model,
+            'modelM'=>$modelM,
+            'token'=>$token,
         ]);
     }
 
