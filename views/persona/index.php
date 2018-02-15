@@ -9,6 +9,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\LinkPager; 
 use yii\widgets\ActiveForm; 
+use yii\widgets\Breadcrumbs;
 use app\models\Municipio;
 use yii\helpers\Url;
 use yii\widgets\Pjax;  
@@ -17,11 +18,17 @@ $this->title = 'Person';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="persona-index">
+    <div class="row">
+        <div class="col-xs-6"><h1><?= Html::encode($this->title) ?></h1></div>
+        <div class="col-xs-6"><br><?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?></div>
+    </div>
     
-    <h1><?= Html::encode($this->title) ?></h1>
+    
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
     <p>
-        <?= Html::a('Create Person', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Person', ['create'], ['class' => 'btn btn-primary ']) ?>
     </p>
     <?php Pjax::begin(); ?>
     <?= GridView::widget([
@@ -31,21 +38,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'nombre',
             'apellido',
-            [
-                'attribute'=>'id_municipio',
-                'value'=>'municipio.municipio',
-                //array de los municipio
-                'filter' =>  $modelM,
-            ],
             [
                 'attribute'=>'id_profesion',
                 'value'=>'profesion.profesion',
                 //array de los municipio
                 'filter' =>  $modelP,
             ],
+            [
+                'attribute'=>'id_municipio',
+                'value'=>'municipio.municipio',
+                //array de los municipio
+                'filter' =>  $modelM,
+            ],
+           
             // 'fecha_nacimiento',
             'correo',
             
