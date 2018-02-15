@@ -31,8 +31,6 @@ $config = [
             'identityClass' => 'app\models\User',
         ],
 
-
-        //Configuración de tema
         // 'view' => [
         //     'theme' => [
         //         'basePath' => '@app/themes/basic',

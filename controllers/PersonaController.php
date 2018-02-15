@@ -69,7 +69,7 @@ class PersonaController extends Controller
         ]);
     }
 
-    /**
+   /**
      * Mostrar una Persona del modelo.
      * @param integer $id, este parametro te permite ver una Persona en base a su id 
      * @return mixed
