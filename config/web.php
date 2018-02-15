@@ -32,7 +32,7 @@ $config = [
         ],
 
 
-        //Configuración de tema
+        // //Configuración de tema
         // 'view' => [
         //     'theme' => [
         //         'basePath' => '@app/themes/basic',

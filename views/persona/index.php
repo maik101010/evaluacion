@@ -7,7 +7,8 @@
 \*******************************************/
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\widgets\LinkPager;  
+use yii\widgets\LinkPager; 
+use yii\widgets\ActiveForm; 
 use app\models\Municipio;
 use yii\helpers\Url;
 use yii\widgets\Pjax;  
@@ -19,7 +20,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
         <?= Html::a('Create Person', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'id'=>'prueba-tabla',
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
 
@@ -55,8 +56,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => yii\grid\ActionColumn::className(),],
             
         ],
+        'tableOptions' =>['class' => 'table table-striped table-dark'],
     ]); ?>
-
+     
     <?php Pjax::end();?>
 
     <!--<input 
@@ -67,16 +69,23 @@ $this->params['breadcrumbs'][] = $this->title;
     </input>-->
     
     <!--<select name="pageSize" id="pageSize" onChange="window.location = '/evaluacion/web/index.php?r=persona%2Findex&pageSize=' + this.value;">-->
-        <select name="pageSize" id="pageSize" onChange="window.location = '/index.php?r=persona%2Findex&pageSize=' + this.value;">
-                                                                      
-            <option value="0">Select pagination</option>
+    
+
+ 
+
+</div>
+    </br>
+    
+    <div class="form-group col-md-2" >
+        <label for="exampleFormControlSelect1">Select pagination</label>
+        <select class="form-control" name="pageSize" id="pageSize" onChange="window.location = '/index.php?r=persona%2Findex&pageSize=' + this.value;">
+            <option value="0">-----//-----</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
         </select>
-    </br>
-    <p>Records for page</p>
+        <p style="text-align: left;">Records for page</p>
     </div>
     <!--Cambio desde evaluación-->
 
