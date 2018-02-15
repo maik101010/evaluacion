@@ -59,10 +59,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'tableOptions' =>['class' => 'table table-striped table-dark'],
     ]); ?>
      
-    <?php Pjax::end();?>
-
-    <?php Pjax::end();?>
-
     <!--<input 
         type="number"
         name="pageSize"
