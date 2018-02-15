@@ -17,7 +17,7 @@ $this->title = 'Person';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="persona-index">
-
+    <h1>Hola master</h1>
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
     <p>
